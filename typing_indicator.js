@@ -1,20 +1,3 @@
-window.addEventListener('message', event => {
-  if (event.data === 'close_slide_out') {
-    document.querySelector('[data-lp-point="minimize-icon"]').click()
-  }
-
-  const closeSlideOutBtn = document.querySelector('[data-lp-point="minimize-icon"]');
-
-  if (closeSlideOutBtn) {
-    closeSlideOutBtn.addEventListener("click", (e) => {
-      if (e.isTrusted) {
-        closeSlideOutBtn.parentElement.parentElement.parentElement.parentElement.querySelector('iframe').contentWindow.postMessage('init_cancel_order', '*');
-        e.stopPropagation();
-      }
-    });
-  }
-});
-
 function updateIsTypingElement(header) {
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
   if (typingText) {

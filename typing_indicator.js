@@ -18,6 +18,7 @@ function agentIsTyping(target) {
 }
 
 function addMessagingWith(data, eventInfo) {
+  console.log('Martha Test');
   if (data && data.state == "interactive") {
     const MutationObserver = window.MutationObserver ||
       window.WebKitMutationObserver || window.MozMutationObserver;

@@ -4,7 +4,9 @@ function updateIsTypingElement() {
   console.log('Update hit');
   if (typingText) {
     typingText.innerText = agentIsTyping(headerText);
+    typingText.innerHTML = agentIsTyping(headerText);
     console.log('Typing Text hit');
+    console.log(typingText.innerHTML);
   }
 }
 

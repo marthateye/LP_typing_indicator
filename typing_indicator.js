@@ -17,7 +17,7 @@ function agentIsTyping(target) {
     target === 'Message us'
   ) {
     console.log('Typing message');
-    return 'Virtual assistant is typing test';
+    return 'Virtual assistant is test';
   }
 
   return 'Agent is typing';

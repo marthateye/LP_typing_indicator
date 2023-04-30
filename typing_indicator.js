@@ -1,14 +1,15 @@
-function updateIsTypingElement(header) {
+function updateIsTypingElement() {
+  const headerText = document.querySelector('[data-lp-point="headerText"]').innerHTML;
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
   if (typingText) {
-    typingText.innerText = agentIsTyping(header);
+    typingText.innerText = agentIsTyping(headerText);
   }
 }
 
 function agentIsTyping(target) {
   if (
-    target.innerText === 'DEV_WEB_PMI_BOT' ||
-    target.innerText === 'Message us'
+    target === 'DEV_WEB_PMI_BOT' ||
+    target === 'Message us'
   ) {
     return 'Virtual assistant is typing test';
   }
@@ -42,7 +43,7 @@ function addMessagingWith(data, eventInfo) {
       childList: true,
       subtree: true,
     });
-    updateIsTypingElement(hdrMax);
+    updateIsTypingElement();
   }
 }
 

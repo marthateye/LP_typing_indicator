@@ -1,4 +1,4 @@
-function updateIsTypingElement() {
+function updateIsTypingElement(target) {
   const headerText = document.querySelector('[data-lp-point="headerText"]').innerHTML;
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
   console.log('Update hit');
@@ -51,7 +51,7 @@ function addMessagingWith(data, eventInfo) {
       childList: true,
       subtree: true,
     });
-    updateIsTypingElement();
+    updateIsTypingElement(hdrMax);
   }
 }
 

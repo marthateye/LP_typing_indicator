@@ -11,13 +11,13 @@ function updateIsTypingElement(target) {
 }
 
 function agentIsTyping(target) {
-  console.log('Agent is typing');
+  
   if (
     target === 'DEV_WEB_PMI_BOT' ||
     target === 'Message us'
   ) {
     console.log('Typing message');
-    return 'Virtual assistant is test';
+    return 'Virtual assistant is typing';
   }
 
   return 'Agent is typing';
@@ -25,8 +25,7 @@ function agentIsTyping(target) {
 
 function addMessagingWith(data, eventInfo) {
   console.log('Martha Test');
-  //if (data && data.state == "interactive") {
-    console.log('Data hit');
+  if (data && data.state == "interactive") {
     const MutationObserver = window.MutationObserver ||
       window.WebKitMutationObserver || window.MozMutationObserver;
 
@@ -52,7 +51,7 @@ function addMessagingWith(data, eventInfo) {
       subtree: true,
     });
     updateIsTypingElement(hdrMax);
-  //}
+  }
 }
 
 window.addEventListener("load", () => {

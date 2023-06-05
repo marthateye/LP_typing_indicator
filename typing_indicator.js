@@ -1,20 +1,17 @@
-function updateIsTypingElement(target) {
-  const headerText = document.querySelector('[data-lp-point="headerText"]').innerHTML;
+function updateIsTypingElement(header) {
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
   console.log('Update hit');
   if (typingText) {
-    typingText.innerText = agentIsTyping(headerText);
-    typingText.innerHTML = agentIsTyping(headerText);
+    typingText.innerText = agentIsTyping(header);
     console.log('Typing Text hit');
-    console.log(typingText.innerHTML);
   }
 }
 
 function agentIsTyping(target) {
   
   if (
-    target === 'DEV_WEB_PMI_BOT' ||
-    target === 'Message us'
+    target.innerText === 'DEV_WEB_PMI_BOT' ||
+    target.innerText === 'Message us'
   ) {
     console.log('Typing message');
     return 'Virtual assistant is typing';

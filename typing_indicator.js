@@ -3,6 +3,7 @@ function updateIsTypingElement(header) {
   console.log('Update hit');
   if (typingText) {
     typingText.innerText = agentIsTyping(header);
+    typingText.style.display = "block";
     console.log('Typing Text hit');
   }
 }

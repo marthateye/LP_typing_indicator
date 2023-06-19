@@ -1,6 +1,7 @@
 function updateIsTypingElement(header) {
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
   if (typingText) {
+    typingText.style.display = "block";
     typingText.innerText = agentIsTyping(header);
   }
 }

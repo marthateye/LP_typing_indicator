@@ -1,10 +1,7 @@
 function updateIsTypingElement(header) {
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
-  console.log('Update hit');
   if (typingText) {
     typingText.innerText = agentIsTyping(header);
-    typingText.style.display = "block";
-    console.log('Typing Text hit');
   }
 }
 
@@ -12,9 +9,9 @@ function agentIsTyping(target) {
   
   if (
     target.innerText === 'DEV_WEB_PMI_BOT' ||
-    target.innerText === 'Message us'
+    target.innerText === 'Message us' ||
+    target.innerText === 'PMI Survey Bot'
   ) {
-    console.log('Typing message');
     return 'Virtual assistant is typing';
   }
 
@@ -22,7 +19,6 @@ function agentIsTyping(target) {
 }
 
 function addMessagingWith(data, eventInfo) {
-  console.log('Martha Test');
   if (data && data.state == "interactive") {
     const MutationObserver = window.MutationObserver ||
       window.WebKitMutationObserver || window.MozMutationObserver;

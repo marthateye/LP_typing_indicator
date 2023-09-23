@@ -7,14 +7,17 @@ function updateIsTypingElement(header) {
 }
 
 function agentIsTyping(target) {
-  
+  console.log(target.innerText);
   if (
     target.innerText === 'DEV_WEB_PMI_BOT' ||
     target.innerText === 'Message us' ||
     target.innerText === 'PMI Survey Bot'
   ) {
+    console.log("va");
     return 'Virtual assistant is typing';
-  }else{return 'Agent is typing';}
+  }else{
+    console.log("AA");
+    return 'Agent is typing';}
 
  // return 'Agent is typing';
 }

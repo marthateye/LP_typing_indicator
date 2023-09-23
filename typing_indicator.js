@@ -14,9 +14,9 @@ function agentIsTyping(target) {
     target.innerText === 'PMI Survey Bot'
   ) {
     return 'Virtual assistant is typing';
-  }
+  }else{return 'Agent is typing';}
 
-  return 'Agent is typing';
+ // return 'Agent is typing';
 }
 
 function addMessagingWith(data, eventInfo) {

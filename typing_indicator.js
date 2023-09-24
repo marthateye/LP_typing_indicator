@@ -61,7 +61,7 @@ function addMessagingWith(data, eventInfo) {
       childList: true,
       subtree: true,
     });
-    updateIsTypingElement(hdrMax);
+    //updateIsTypingElement(hdrMax);
   
 }
 

@@ -34,7 +34,18 @@ function addMessagingWith(data, eventInfo) {
 
     const observer = new MutationObserver(((mutations) => {
       mutations.forEach((mutation) => {
-        updateIsTypingElement(mutation.target);
+        const { target} = mutation;
+        const { innerText } = target;
+        const headerMessage = headerCheckHandler(mutation.target);
+        if ((headerMessage && headerMessage !== innerText) && !headerMessage.includes('undefined')) { 
+          target.innerText = headerMessage; } 
+          // headerCheckHandler(mutation.target); 
+          // headerCheck(hdrMin); 
+          const typingText = document.querySelector('[data-lp-point="agent_is_typing"]'); 
+          if (typingText) { 
+            typingText.innerText = agentIsTyping(mutation.target);
+          }
+        //updateIsTypingElement(mutation.target);
       });
     }));
 

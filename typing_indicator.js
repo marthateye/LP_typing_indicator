@@ -24,7 +24,7 @@ function agentIsTyping(target) {
 
 function addMessagingWith(data, eventInfo) {
   console.log(data)
-  if (data && data.state == "interactive") {
+  //if (data && data.state == "interactive") {
     const MutationObserver = window.MutationObserver ||
       window.WebKitMutationObserver || window.MozMutationObserver;
 
@@ -50,7 +50,7 @@ function addMessagingWith(data, eventInfo) {
       subtree: true,
     });
     updateIsTypingElement(hdrMax);
-  }
+  
 }
 
 window.addEventListener("load", () => {

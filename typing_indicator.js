@@ -1,7 +1,7 @@
 function updateIsTypingElement(header) {
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
   if (typingText) {
-    typingText.style.display = "block";
+    //typingText.style.display = "block";
     typingText.innerText = agentIsTyping(header);
   }
 }
@@ -23,6 +23,7 @@ function agentIsTyping(target) {
 }
 
 function addMessagingWith(data, eventInfo) {
+  console.log(data)
   if (data && data.state == "interactive") {
     const MutationObserver = window.MutationObserver ||
       window.WebKitMutationObserver || window.MozMutationObserver;

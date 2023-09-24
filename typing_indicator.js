@@ -25,7 +25,7 @@ function agentIsTyping(target) {
 
 function addMessagingWith(data, eventInfo) {
   console.log(data)
-  //if (data && data.state == "interactive") {
+  if (data && data.state == "interactive" || date.state ==="chatting") {
     const MutationObserver = window.MutationObserver ||
       window.WebKitMutationObserver || window.MozMutationObserver;
 
@@ -36,15 +36,15 @@ function addMessagingWith(data, eventInfo) {
       mutations.forEach((mutation) => {
         const { target} = mutation;
         const { innerText } = target;
-        const headerMessage = headerCheckHandler(mutation.target);
-        if ((headerMessage && headerMessage !== innerText) && !headerMessage.includes('undefined')) { 
-          target.innerText = headerMessage; } 
+        //const headerMessage = headerCheckHandler(mutation.target);
+        //if ((headerMessage && headerMessage !== innerText) && !headerMessage.includes('undefined')) { 
+          //target.innerText = headerMessage; } 
           // headerCheckHandler(mutation.target); 
           // headerCheck(hdrMin); 
           const typingText = document.querySelector('[data-lp-point="agent_is_typing"]'); 
           if (typingText) { 
             typingText.innerText = agentIsTyping(mutation.target);
-          }
+          }else{console.log('no typing text')}
         //updateIsTypingElement(mutation.target);
       });
     }));

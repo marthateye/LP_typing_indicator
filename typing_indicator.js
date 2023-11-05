@@ -1,9 +1,10 @@
 function updateIsTypingElement(header) {
+  const newTypingText = agentIsTyping(header);
   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]');
   console.log(typingText)
-  if (typingText) {
+  if (typingText && typingText.innerText !== newTypingText && typingText.innerText !== '') {
     //typingText.style.display = "block";
-    typingText.innerText = agentIsTyping(header);
+    typingText.innerText = newTypingText;
   }
 }
 
@@ -31,21 +32,22 @@ function addMessagingWith(data, eventInfo) {
 
     const hdrMax = document.querySelector('[data-lp-point="maximized"] [data-lp-point="headerText"]');
     const hdrMin = document.querySelector('[data-lp-point="minimized"] [data-lp-point="headerText"]');
-
+    const hdrTyping = document.querySelector('[data-lp-point="agent_is_typing"]');
     const observer = new MutationObserver(((mutations) => {
       mutations.forEach((mutation) => {
-        const { target} = mutation;
-        const { innerText } = target;
-        //const headerMessage = headerCheckHandler(mutation.target);
-        //if ((headerMessage && headerMessage !== innerText) && !headerMessage.includes('undefined')) { 
-          //target.innerText = headerMessage; } 
-          // headerCheckHandler(mutation.target); 
-          // headerCheck(hdrMin); 
-          const typingText = document.querySelector('[data-lp-point="agent_is_typing"]'); 
-          if (typingText) { 
-            typingText.innerText = agentIsTyping(mutation.target);
-          }else{console.log('no typing text')}
-        //updateIsTypingElement(mutation.target);
+        // const { target} = mutation;
+        // const { innerText } = target;
+        updateIsTypingElement(hdrMax);
+        // //const headerMessage = headerCheckHandler(mutation.target);
+        // //if ((headerMessage && headerMessage !== innerText) && !headerMessage.includes('undefined')) { 
+        //   //target.innerText = headerMessage; } 
+        //   // headerCheckHandler(mutation.target); 
+        //   // headerCheck(hdrMin); 
+        //   const typingText = document.querySelector('[data-lp-point="agent_is_typing"]'); 
+        //   if (typingText) { 
+        //     typingText.innerText = agentIsTyping(mutation.target);
+        //   }else{console.log('no typing text')}
+        // //updateIsTypingElement(mutation.target);
       });
     }));
 
@@ -61,7 +63,13 @@ function addMessagingWith(data, eventInfo) {
       childList: true,
       subtree: true,
     });
-    //updateIsTypingElement(hdrMax);
+    observer.observe(hdrTyping, {
+      characterData: true,
+      attributes: true,
+      childList: true,
+      subtree: true
+    });
+    updateIsTypingElement(hdrMax);
   
 }
 

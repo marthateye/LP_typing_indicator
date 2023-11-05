@@ -17,11 +17,9 @@ function agentIsTyping(target) {
   ) {
     console.log("va");
     return 'Virtual assistant is typing';
-  }else{
-    console.log("AA");
-    return 'Agent is typing';}
+  }
 
- // return 'Agent is typing';
+ return 'Live Agent is typing';
 }
 
 function addMessagingWith(data, eventInfo) {
@@ -70,7 +68,7 @@ function addMessagingWith(data, eventInfo) {
       subtree: true
     });
     updateIsTypingElement(hdrMax);
-  
+  } 
 }
 
 window.addEventListener("load", () => {
